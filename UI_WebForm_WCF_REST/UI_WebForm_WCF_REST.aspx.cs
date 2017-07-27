@@ -45,7 +45,7 @@ public partial class _UI_WebForm : System.Web.UI.Page
         string contentType = "";
         System.Net.ServicePointManager.SecurityProtocol = (SecurityProtocolType)192 | (SecurityProtocolType)768 | (SecurityProtocolType)3072;
 
-        HttpClient client = new HttpClient();
+        using( HttpClient client = new HttpClient() )
         {
             var message = new HttpRequestMessage(new HttpMethod(method), endpoint);
 
